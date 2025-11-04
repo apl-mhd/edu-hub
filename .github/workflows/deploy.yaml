@@ -49,10 +49,10 @@ jobs:
           script: |
             cd /home/${{ secrets.EC2_USERNAME }}
 
-            docker compose down
-            docker image prune -af
+            sudo docker compose down
+            sudo docker image prune -af
 
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/edu-backend:latest
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/edu-backend:latest
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/edu-frontend:latest
 
-            docker compose up -d
+            sudo docker compose up -d
